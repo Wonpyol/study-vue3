@@ -1,15 +1,15 @@
 <template>
   <div id="app">
-    hello
+    <Toolbar></Toolbar>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
+import Toolbar from "@/components/Toolbar.vue";
 export default {
-  methods: {
-    fetchData() {
-      console.log("hello")
-    },
+  components:{
+    Toolbar,
   }
 }
 </script>
