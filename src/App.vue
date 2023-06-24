@@ -1,7 +1,14 @@
 <template>
   <div id="app">
     <Toolbar></Toolbar>
-    <router-view></router-view>
+    <router-view v-slot="{ Component }">
+      <transition name="page">
+        <component :is="Component" />
+      </transition>
+    </router-view>
+<!--    <transition name="page">-->
+<!--      <router-view></router-view>-->
+<!--    </transition>-->
   </div>
 </template>
 
@@ -14,13 +21,19 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+
+  /* router tracsition */
+
+  .page-enter-active,
+  .page-leave-active {
+    transition: opacity 0.5s ease;
+  }
+
+  .page-enter-from,
+  .page-leave-to {
+    opacity: 0;
+  }
 }
 </style>

@@ -7,5 +7,11 @@ export default {
     },
     SET_JOBS(state, data) {
         state.jobs = data
+    },
+    SET_USERINFO(state, data) {
+        state.user = data
+    },
+    SET_ITEMINFO(state, data) {
+        state.item = data
     }
 }

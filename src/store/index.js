@@ -5,7 +5,9 @@ export const store = createStore({
     state: {
         news: [],
         asks: [],
-        jobs: []
+        jobs: [],
+        user: {},
+        item: {}
     },
     getters: { //computed 같은속성
         fetchAskData(state) {
@@ -16,6 +18,12 @@ export const store = createStore({
         },
         fetchNewsData(state) {
             return state.news
+        },
+        fetchUserInfoData(state) {
+            return state.user
+        },
+        fetchItemInfoData(state) {
+            return state.item
         }
     },
     actions,
