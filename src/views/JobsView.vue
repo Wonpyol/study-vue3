@@ -1,8 +1,19 @@
 <template>
-  <p v-for="job in fetchJobsData">
-    <a v-bind:href="job.url">{{ job.title }}</a>
-    <small>{{ job.time }} by {{ job.domain }}</small>
-  </p>
+  <ul class="contents-list">
+    <li v-for="(job, index) in fetchJobsData" class="contents-post">
+      <div class="contents-point">
+        {{index}}
+      </div>
+      <div>
+        <p class="contents-title">
+          <a v-bind:href="job.url">{{ job.title }}</a>
+        </p>
+        <small class="contents-link-text">
+          <small>{{ job.time_ago }} by {{ job.domain }}</small>
+        </small>
+      </div>
+    </li>
+  </ul>
 
 </template>
 

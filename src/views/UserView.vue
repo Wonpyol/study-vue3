@@ -12,7 +12,6 @@
 <script>
 import {defineComponent} from 'vue'
 import {mapGetters} from "vuex";
-import {fetchUserInfo} from "../api";
 
 export default defineComponent({
   name: "UserView",
