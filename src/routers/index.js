@@ -3,7 +3,6 @@ import NewsView from "@/views/NewsView.vue"
 import AskView from "@/views/AskView.vue"
 import JobsView from "@/views/JobsView.vue"
 import UserView from "@/views/UserView.vue";
-import ItemView from "@/views/ItemView.vue";
 import itemView from "@/views/ItemView.vue";
 
 
@@ -13,22 +12,27 @@ const routes = [
       redirect: '/news'
     },
     {
+        name: 'news',
         path: '/news',
         component: NewsView
     },
     {
+        name: 'ask',
         path: '/ask',
         component: AskView
     },
     {
+        name: 'jobs',
         path: '/jobs',
         component: JobsView
     },
     {
+        name: 'user',
         path: '/user/:id',
         component: UserView
     },
     {
+        name: 'item',
         path: '/item/:id',
         component: itemView
     }
