@@ -28,44 +28,6 @@ body {
   margin: 0;
 }
 
-a {
-  color: #34495e;
-  text-decoration: none;
-}
-a:hover {
-  color: #42b883;
-  text-decoration: underline;
-}
-a.router-link-exact-active {
-  text-decoration: underline;
-}
-.contents-list {
-  margin: 0;
-  padding: 0;
-}
-.contents-post {
-  list-style: none;
-  display: flex;
-  align-items: center;
-  border-bottom: 1px solid #eee;
-}
-.contents-point {
-  width: 80px;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #42b883;
-}
-.contents-title {
-  margin: 0;
-}
-
-.contents-link-text {
-  color: #828282;
-}
-
-
 
   /* router tracsition */
 .slide-fade-enter-active {

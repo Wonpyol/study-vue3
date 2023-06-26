@@ -1,26 +1,31 @@
 <template>
-  <section>
-    <div class="user-container">
+  <div>
+    <section>
       <div>
-        <i><font-awesome-icon icon="fa-solid fa-user-secret" /></i>
+        <user-profile>
+          <template v-slot:username>
+            <router-link v-bind:to="`/user/${fetchItemInfoData.user}`">{{ fetchItemInfoData.user }}</router-link>
+          </template>
+          <template v-slot:time>{{ fetchItemInfoData.time_ago }}</template>
+        </user-profile>
       </div>
-      <div class="user-decription">
-        <router-link v-bind:to="`/user/${fetchItemInfoData.user}`">{{ fetchItemInfoData.user }}</router-link>
-      </div>
-      <div class="time">
-        {{ fetchItemInfoData.time_ago}}
-      </div>
-    </div>
-    <h2>{{ fetchItemInfoData.title }}</h2>
-  </section>
-  <section>
-    <div v-html="fetchItemInfoData.content"></div>
-  </section>
+    </section>
+    <section>
+      <h2>{{ fetchItemInfoData.title }}</h2>
+    </section>
+    <section>
+      <div v-html="fetchItemInfoData.content"></div>
+    </section>
+  </div>
 </template>
 
 <script>
 import {mapGetters} from "vuex";
+import UserProfile from "@/components/UserProfile.vue";
 export default {
+  components: {
+    UserProfile
+  },
   computed: {
     ...mapGetters([
         'fetchItemInfoData'
@@ -43,7 +48,7 @@ export default {
 .time {
   font-size: 0.7rem;
 }
-.user-decription {
+.user-description {
   padding-left: 8px;
 
 }

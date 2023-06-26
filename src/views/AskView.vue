@@ -1,26 +1,16 @@
 <template>
-  <ul class="contents-list">
-    <li v-for="ask in fetchAskData" class="contents-post">
-      <div class="contents-point">
-        {{ ask.points}}
-      </div>
-      <div>
-        <p class="contents-title">
-          <router-link v-bind:to="`/item/${ask.id}`">{{ ask.title}}</router-link>
-        </p>
-        <small class="contents-link-text">
-          <small>{{ ask.points }} points by {{ask.user}} {{ask.time_ago}} | {{ ask.comments_count }} comments</small>
-        </small>
-      </div>
-    </li>
-  </ul>
+  <div><item-list></item-list></div>
 </template>
 
 <script>
 import {mapGetters} from "vuex";
+import ItemList from "@/components/ItemList.vue";
 
 export default {
   name: "AskView",
+  components: {
+    ItemList
+  },
   computed: {
     ...mapGetters([
         'fetchAskData'

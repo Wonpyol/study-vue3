@@ -1,26 +1,15 @@
 <template>
-  <ul class="contents-list">
-    <li v-for="(job, index) in fetchJobsData" class="contents-post">
-      <div class="contents-point">
-        {{index}}
-      </div>
-      <div>
-        <p class="contents-title">
-          <a v-bind:href="job.url">{{ job.title }}</a>
-        </p>
-        <small class="contents-link-text">
-          <small>{{ job.time_ago }} by {{ job.domain }}</small>
-        </small>
-      </div>
-    </li>
-  </ul>
-
+  <div><item-list></item-list></div>
 </template>
 
 <script>
 import {mapState, mapGetters} from 'vuex'
+import ItemList from "@/components/ItemList.vue";
 export default {
   name: "JobsView",
+  components: {
+    ItemList
+  },
   computed: {
     //state 값 가져오는 3가지 방법
     //1: mapGetters
