@@ -14,11 +14,19 @@ import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
 
 /* add some free styles */
 import { faTwitter } from '@fortawesome/free-brands-svg-icons'
-
+import EventBus from "@/utils/bus";
 
 
 /* add icons to the library */
 library.add(faUserSecret, faTwitter)
+
+
+createApp(App, {
+  // Listen for the 'expand' event
+  onExpand() {
+    console.log('expand')
+  }
+})
 
 const app = createApp(App)
     .component('font-awesome-icon', FontAwesomeIcon)
@@ -26,5 +34,6 @@ app.use(router)
 app.use(store)
 app.use(faUserSecret)
 app.use(library)
-
+app.use(EventBus)
 app.mount("#app")
+

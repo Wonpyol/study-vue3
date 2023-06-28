@@ -23,8 +23,7 @@
             <router-link v-bind:to="`/user/${item.user}`" class="contents-link-text">{{ item.user }}</router-link>
           </template>
           <template v-else>
-            <router-link v-bind:to="`/user/${item.user}`" class="contents-link-text">{{ item.domain }}</router-link>
-
+            <router-link v-bind:to ="`/item/${item.id}`" class="contents-link-text">{{ item.domain }}</router-link>
           </template>
         </small>
       </div>
@@ -40,16 +39,7 @@ export default {
   },
   computed:{
     listItems() {
-      const contentsName = this.$route.name;
-      if (contentsName === 'news') {
-        return this.$store.state.news;
-      }else if (contentsName === 'ask') {
-        return this.$store.state.asks;
-      } else if (contentsName === 'jobs') {
-        return this.$store.state.jobs;
-      } else {
-        console.error("not found route name")
-      }
+      return this.$store.state.list;
     }
   }
 }

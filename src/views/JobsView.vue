@@ -5,6 +5,7 @@
 <script>
 import {mapState, mapGetters} from 'vuex'
 import ItemList from "@/components/ItemList.vue";
+import EventBus from "@/utils/bus";
 export default {
   name: "JobsView",
   components: {
@@ -31,7 +32,13 @@ export default {
     }
   },
   created() {
+    EventBus.$emit('start:spinner')
     this.$store.dispatch('FETCH_JOBS')
+        .then(() => {
+          console.log("fetched")
+          EventBus.$emit('end:spinner')
+        })
+        .catch(error => console.error(error))
   }
 }
 </script>

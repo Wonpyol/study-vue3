@@ -5,6 +5,7 @@
 <script>
 import {mapGetters} from "vuex";
 import ItemList from "@/components/ItemList.vue";
+import EventBus from "@/utils/bus";
 
 export default {
   name: "AskView",
@@ -22,7 +23,13 @@ export default {
     }
   },
   created() {
+    EventBus.$emit('start:spinner')
     this.$store.dispatch('FETCH_ASK')
+        .then(() => {
+          console.log("fetched")
+          EventBus.$emit('end:spinner')
+        })
+        .catch(error => console.error(error))
   }
 }
 </script>

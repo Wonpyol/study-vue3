@@ -33,7 +33,7 @@ export default {
   },
   created() {
     const id = this.$route.params.id;
-    this.$store.dispatch('FECTCH_ITEMINFO', id)
+    this.$store.dispatch('FETCH_ITEMINFO', id)
   },
 }
 

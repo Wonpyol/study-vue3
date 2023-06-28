@@ -8,16 +8,42 @@
         </div>
       </transition>
     </router-view>
+    <spinner :loading="loadingStatus"></spinner>
   </div>
 </template>
 
 <script>
 import Toolbar from "@/components/Toolbar.vue";
-
+import Spinner from "@/components/Spinner.vue";
+import EventBus from "@/utils/bus";
 export default {
   components:{
     Toolbar,
-  }
+    Spinner
+  },
+  data() {
+    return {
+      loadingStatus: false
+    }
+  },
+  methods: {
+    startSpinner() {
+      this.loadingStatus = true;
+    },
+    endSpinner() {
+      this.loadingStatus = false;
+    },
+  },
+  created() {
+    EventBus.$on('start:spinner', this.startSpinner)
+    EventBus.$on('end:spinner', this.endSpinner)
+  },
+  //이벤트 객체가 쌓이지 않게 해제
+  beforeDestroy() {
+    EventBus.$off('start.spinner', this.startSpinner);
+    EventBus.$off('end.spinner', this.endSpinner);
+  },
+
 }
 
 </script>
