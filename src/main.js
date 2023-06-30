@@ -21,13 +21,6 @@ import EventBus from "@/utils/bus";
 library.add(faUserSecret, faTwitter)
 
 
-createApp(App, {
-  // Listen for the 'expand' event
-  onExpand() {
-    console.log('expand')
-  }
-})
-
 const app = createApp(App)
     .component('font-awesome-icon', FontAwesomeIcon)
 app.use(router)

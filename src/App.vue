@@ -2,7 +2,7 @@
   <div id="app">
     <Toolbar></Toolbar>
     <router-view v-slot="{ Component, route }">
-      <transition name="slide-fade">
+      <transition>
         <div :key="route.name">
           <component :is="Component"></component>
         </div>
