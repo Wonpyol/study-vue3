@@ -63,6 +63,7 @@ const routes = [
         component: itemView
     }
 ]
+
 export const router = createRouter({
     history: createWebHistory(),
     routes
